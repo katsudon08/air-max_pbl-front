@@ -2,6 +2,8 @@ import { ChartCom } from "@/components/Chart";
 
 export default function Chart() {
     return (
-        <ChartCom/>
+        <div className="h-full w-full">
+            <ChartCom/>
+        </div>
     );
 }

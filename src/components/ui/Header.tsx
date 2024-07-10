@@ -31,7 +31,7 @@ export const Header = () => {
 
     return (
         <Sheet>
-            <div className='bg-zinc-950 sticky top-0 z-10 flex w-full h-1/6 flex-row justify-end'>
+            <div className='bg-zinc-950 z-10 h-fit absolute top-0 flex w-full flex-row justify-end'>
                 <SheetTrigger asChild>
                     <Button className='bg-inherit'>Menu</Button>
                 </SheetTrigger>
@@ -39,8 +39,8 @@ export const Header = () => {
             <SheetContent>
                 <SheetTitle>Side Bar</SheetTitle>
                 <div className='h-full flex flex-col items-center justify-start space-y-1 mt-2'>
-                    {buttonItem.map((v) => (
-                        <Button variant={"ghost"} className='w-3/4' onClick={() => handleTransition(v.buttonPath)}>
+                    {buttonItem.map((v, i) => (
+                        <Button variant={"ghost"} className='w-3/4' onClick={() => handleTransition(v.buttonPath)} key={i}>
                             {v.buttonName}
                         </Button>
                     ))}
