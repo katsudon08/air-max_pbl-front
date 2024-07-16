@@ -1,4 +1,4 @@
-import { ChartCom } from "@/components/Chart";
+import { ChartCom } from "@/components/chart/Chart";
 
 export default function Chart() {
     return (

@@ -32,7 +32,7 @@ export const TempHumChart = ({ chartData }: { chartData: TempHumChartData[] }) =
     return (
         <Card className='h-fit w-full'>
             <CardHeader>
-                <CardTitle>気温 気圧</CardTitle>
+                <CardTitle>気温 湿度</CardTitle>
             </CardHeader>
             <CardContent>
                 <ChartContainer config={chartConfig}>
