@@ -28,13 +28,10 @@ export const ChartCom = () => {
     ]
 
     return (
-        <main className='h-full w-full'>
-            <Header />
-            <div className='h-[92%] fixed bottom-0 w-full flex justify-center items-center'>
-                <div className='h-3/4 w-4/5 md:w-3/5 flex flex-col md:flex-row justify-between items-center space-y-5 md:space-y-0 md:space-x-5'>
-                    <TempHumChart chartData={tempHumChartData} />
-                    <AtmoPresChart chartData={atmoPresChartData} />
-                </div>
+        <main className='h-[92%] fixed bottom-0 w-full flex justify-center items-center'>
+            <div className='h-3/4 w-4/5 md:w-3/5 flex flex-col md:flex-row justify-between items-center space-y-5 md:space-y-0 md:space-x-5'>
+                <TempHumChart chartData={tempHumChartData} />
+                <AtmoPresChart chartData={atmoPresChartData} />
             </div>
         </main>
     )

@@ -3,6 +3,7 @@ import { Inter as FontSans } from "next/font/google"
 import "./globals.css";
 
 import { cn } from "@/lib/utils"
+import { Header } from "@/components/Header";
 
 const fontSans = FontSans({
     subsets: ["latin"],
@@ -26,7 +27,12 @@ export default function RootLayout({
                     "h-svh w-full bg-background font-sans antialiased",
                     fontSans.variable
                 )
-            }>{children}</body>
+            }>{
+                <div className="h-full w-full">
+                    <Header />
+                    {children}
+                </div>
+            }</body>
         </html>
     );
 }

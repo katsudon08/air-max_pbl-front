@@ -7,6 +7,7 @@ import {
     SheetContent,
     SheetTitle,
     SheetTrigger,
+    SheetClose
 } from "@/components/ui/sheet"
 import { Separator } from './ui/separator'
 import { useRouter } from 'next/navigation'
@@ -40,9 +41,11 @@ export const Header = () => {
                 <SheetTitle>Side Bar</SheetTitle>
                 <div className='h-full flex flex-col items-center justify-start space-y-1 mt-2'>
                     {buttonItem.map((v, i) => (
-                        <Button variant={"ghost"} className='w-3/4' onClick={() => handleTransition(v.buttonPath)} key={i}>
-                            {v.buttonName}
-                        </Button>
+                        <SheetClose asChild>
+                            <Button variant={"ghost"} className='w-3/4' onClick={() => handleTransition(v.buttonPath)} key={i}>
+                                {v.buttonName}
+                            </Button>
+                        </SheetClose>
                     ))}
                     <Separator />
                 </div>
