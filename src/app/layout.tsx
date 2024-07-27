@@ -4,6 +4,7 @@ import "./globals.css";
 
 import { cn } from "@/lib/utils"
 import { Header } from "@/components/Header";
+import { RoomProvider } from "@/context/roomContext";
 
 const fontSans = FontSans({
     subsets: ["latin"],
@@ -28,11 +29,13 @@ export default function RootLayout({
                     fontSans.variable
                 )
             }>{
-                <div className="h-full w-full">
-                    <Header />
-                    {children}
-                </div>
-            }</body>
+                    <div className="h-full w-full">
+                        <RoomProvider>
+                            <Header />
+                            {children}
+                        </RoomProvider>
+                    </div>
+                }</body>
         </html>
     );
 }

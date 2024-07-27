@@ -2,16 +2,17 @@
 import { ChartCom } from "@/components/chart/Chart";
 import { DIRECTORY } from "@/constants/pass_dir";
 import { URL_PATH } from "@/constants/urls";
+import { useRoom } from "@/context/roomContext";
 import { Weather } from "@/types/weather";
 import { useEffect, useState } from "react";
 
 export default function Chart() {
-    //TODO 後でスイッチできるようにする
-    const switchPath = URL_PATH.ROOM1LATEST
+    // TODO あとでスクレイピングで週間予報（天気）をfetchする
+    const { room, setRoom } = useRoom()
 
     useEffect(() => {
         const fetchWeatherData = async () => {
-            const res = await fetch(DIRECTORY.API + switchPath, {
+            const res = await fetch(DIRECTORY.API + URL_PATH.ROOM + room, {
                 cache: "no-store"
             })
             if (!res.ok) {
@@ -26,7 +27,7 @@ export default function Chart() {
         }
 
         fetchWeatherData()
-    }, [])
+    }, [room])
 
     const [weatherData, setWeatherData] = useState<Weather[]>([])
 

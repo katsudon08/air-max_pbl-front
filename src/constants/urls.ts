@@ -6,6 +6,8 @@ export const URLS = {
 export const URL_PATH = {
     ROOM1: "/room1",
     ROOM2: "/room2",
+    ROOM: "/room",
     ROOM1LATEST: "/room1/latest",
-    ROOM2LATEST: "/room2/latest"
+    ROOM2LATEST: "/room2/latest",
+    LATEST: "/latest"
 } as const satisfies Record<string, string>

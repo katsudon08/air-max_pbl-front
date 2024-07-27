@@ -1,6 +1,6 @@
 "use client"
 
-import React from 'react'
+import React, { useState } from 'react'
 import { Button } from './ui/button'
 import {
     Sheet,
@@ -12,6 +12,10 @@ import {
 import { Separator } from './ui/separator'
 import { useRouter } from 'next/navigation'
 import { DIRECTORY, PathDirectory, PathDirectoryKey } from '@/constants/pass_dir'
+import { useRoom } from '@/context/roomContext'
+import { Switch } from './ui/switch'
+import { Label } from './ui/label'
+
 
 const buttonNames: PathDirectoryKey[] = ['HOME', 'LOG', 'CHART']
 const buttonPaths: PathDirectory[] = [DIRECTORY.HOME, DIRECTORY.LOG, DIRECTORY.CHART]
@@ -26,13 +30,21 @@ const buttonItem = Array.from({ length: 3 }).map((_, i) => {
 export const Header = () => {
     const router = useRouter()
 
+    const { room, setRoom } = useRoom()
+
     const handleTransition = (path: PathDirectory) => {
         router.push(path)
     }
 
+    const handleToggleRoom = () => {
+        setRoom(prevRoom => prevRoom === 1 ? 2 : 1)
+    }
+
     return (
         <Sheet>
-            <div className='bg-zinc-950 z-10 h-[8%] absolute top-0 flex w-full flex-row justify-end items-center'>
+            <div className='bg-zinc-800 z-10 h-[8%] pl-2 absolute top-0 flex w-full flex-row justify-between items-center'>
+                <Switch id='room-number' onClick={handleToggleRoom} />
+                <Label className='text-white' htmlFor='room-number'>room{room}</Label>
                 <SheetTrigger asChild>
                     <Button className='bg-inherit'>Menu</Button>
                 </SheetTrigger>
