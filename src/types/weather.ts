@@ -1,6 +1,5 @@
 export type Weather = {
-    id: string
-    room: number
+    id: number
     date: string
     temperature: number
     humidity: number

@@ -9,15 +9,3 @@ export async function GET() {
 
     return Response.json(data)
 }
-
-export async function  POST() {
-    const res = await fetch(URLS.SERVER+URL_PATH.ROOM2LATEST, {
-        method: "POST"
-    })
-
-    const data = await res.json()
-
-    console.log("api:", data)
-
-    return Response.json(data)
-}

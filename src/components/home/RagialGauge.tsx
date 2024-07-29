@@ -1,14 +1,10 @@
 "use client"
-import { useWindowSize } from '@/hooks/useWindowSize'
 import { IgrRadialGauge, IgrRadialGaugeModule } from 'igniteui-react-gauges'
 import React from 'react'
 
 IgrRadialGaugeModule.register()
 
 export const RagialGauge = ({ name, value, min, max }: { name: string, value: number, min: number, max: number }) => {
-    const windowHeight = useWindowSize()
-    console.log(windowHeight)
-
     return (
         <div className='h-full w-full flex justify-center items-center relative'>
             <IgrRadialGauge

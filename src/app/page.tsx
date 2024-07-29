@@ -7,8 +7,7 @@ import { useState } from "react";
 
 export default function Home() {
     const [weatherData, setWeatherData] = useState<Weather>({
-        id: "",
-        room: 0,
+        id: 0,
         date: "",
         temperature: 0,
         humidity: 0,

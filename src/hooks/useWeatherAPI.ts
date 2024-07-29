@@ -1,13 +1,13 @@
 import { DIRECTORY } from "@/constants/pass_dir"
 import { URL_PATH } from "@/constants/urls"
-import { useRoom } from "@/context/roomContext"
 import { useCallback } from "react"
 
-export const useAPI = (latestFlag: boolean) => {
-    const { room, setRoom } = useRoom()
+type Room = 1 | 2
+
+export const useWeatherAPI = (latestFlag: boolean) => {
     const latest = latestFlag ? URL_PATH.LATEST : ""
 
-    const get = useCallback(async () => {
+    const get = useCallback(async (room: Room) => {
         const res = await fetch(DIRECTORY.API + URL_PATH.ROOM + room + latest, {
             cache: "no-store"
         })
@@ -20,8 +20,8 @@ export const useAPI = (latestFlag: boolean) => {
         return data
     }, [])
 
-    const post = useCallback(async () => {
-        const res = await fetch(DIRECTORY.API + URL_PATH.ROOM + room + latest, {
+    const post = useCallback(async (room: Room) => {
+        const res = await fetch(DIRECTORY.API + URL_PATH.ROOM + room, {
             method: "POST",
         })
         if (!res.ok) {
