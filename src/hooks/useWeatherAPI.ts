@@ -4,8 +4,8 @@ import { useCallback } from "react"
 
 type Room = 1 | 2
 
-export const useWeatherAPI = (latestFlag: boolean) => {
-    const latest = latestFlag ? URL_PATH.LATEST : ""
+export const useWeatherAPI = (isLatest: boolean) => {
+    const latest = isLatest ? URL_PATH.LATEST : ""
 
     const get = useCallback(async (room: Room) => {
         const res = await fetch(DIRECTORY.API + URL_PATH.ROOM + room + latest, {
