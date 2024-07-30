@@ -53,8 +53,8 @@ export const Header = () => {
                 <SheetTitle>Side Bar</SheetTitle>
                 <div className='h-full flex flex-col items-center justify-start space-y-1 mt-2'>
                     {buttonItem.map((v, i) => (
-                        <SheetClose asChild>
-                            <Button variant={"ghost"} className='w-3/4' onClick={() => handleTransition(v.buttonPath)} key={i}>
+                        <SheetClose key={i} asChild>
+                            <Button variant={"ghost"} className='w-3/4' onClick={() => handleTransition(v.buttonPath)}>
                                 {v.buttonName}
                             </Button>
                         </SheetClose>
