@@ -3,11 +3,14 @@ import { Dispatch, SetStateAction, useEffect, useState } from "react"
 import { useWeatherAPI } from "./useWeatherAPI"
 import { Weather } from "@/types/weather"
 import { supabase } from "@/utils/supabase"
+import { handleIsWeatherCaution } from "@/utils/handleIsWeatherCaution"
+import { useToast } from "@/components/ui/use-toast"
 
 type SetData = Dispatch<SetStateAction<Weather>> | Dispatch<SetStateAction<Weather[]>>
 
 export const useSupabaseWeather = (setData: SetData, isLatest: boolean) => {
     const { room, setRoom } = useRoom()
+    const { toast } = useToast()
 
     useEffect(() => {
         console.log(room)
@@ -16,7 +19,7 @@ export const useSupabaseWeather = (setData: SetData, isLatest: boolean) => {
                 (await supabase.from("room1").select("*")).data :
                 (await supabase.from("room2").select("*")).data
 
-            if (handleIsWeatherCaution(getData, isLatest)) {
+            if (handleIsWeatherCaution(data, isLatest)) {
                 toast({
                     variant: "destructive",
                     title: "快適な温度を保つために、冷房のご使用をお勧めいたします"
