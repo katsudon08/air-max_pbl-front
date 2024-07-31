@@ -46,10 +46,9 @@ export const TempHumChart = ({ chartData }: { chartData: TempHumChartData[] }) =
                     >
                         <CartesianGrid vertical={false} />
                         <XAxis
-                            dataKey="week"
+                            dataKey="date"
                             axisLine={false}
                             tickMargin={8}
-                            tickFormatter={(value) => value.slice(0, 3)}
                         />
                         <YAxis
                             dataKey="temperature"

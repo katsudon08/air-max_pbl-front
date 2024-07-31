@@ -1,12 +1,10 @@
-import { Week } from "@/constants/week"
-
 export type TempHumChartData = {
-    week: Week
+    date: string
     temperature: number
     humidity: number
 }
 
 export type AtmoPresChartData = {
-    week: Week
+    date: string
     pressure: number
 }

@@ -1,9 +1,8 @@
-import { useRoom } from "@/context/roomContext"
-import { Dispatch, SetStateAction, useEffect, useState } from "react"
-import { Weather } from "@/types/weather"
+import { Dispatch, SetStateAction, useEffect } from "react"
 import { useWeatherMapAPI } from "./useWeatherMapAPI"
+import { NewWeatherMap } from "@/types/weatherMap"
 
-type SetData = Dispatch<SetStateAction<Weather>> | Dispatch<SetStateAction<Weather[]>>
+type SetData = Dispatch<SetStateAction<NewWeatherMap[]>>
 
 export const useWeatherMap = (setData: SetData) => {
     const weather = useWeatherMapAPI()

@@ -2,17 +2,18 @@
 import { ChartCom } from "@/components/chart/Chart";
 import { useWeatherMap } from "@/hooks/useWeatherMap";
 import { Weather } from "@/types/weather";
+import { NewWeatherMap } from "@/types/weatherMap";
 import { useEffect, useState } from "react";
 
 export default function Chart() {
     // TODO あとでスクレイピングで週間予報（天気）をfetchする
-    const [weatherData, setWeatherData] = useState<Weather[]>([])
+    const [weatherData, setWeatherData] = useState<NewWeatherMap[]>([])
 
-    // const data = useWeatherMap(setWeatherData)
+    useWeatherMap(setWeatherData)
 
-    // console.log(data)
+    console.log(weatherData)
 
     return (
-        <ChartCom />
+        <ChartCom data={weatherData}/>
     );
 }
