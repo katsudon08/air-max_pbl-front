@@ -42,10 +42,9 @@ export const AtmoPresChart = ({ chartData }: { chartData: AtmoPresChartData[] })
                     >
                         <CartesianGrid vertical={false} />
                         <XAxis
-                            dataKey="week"
+                            dataKey="date"
                             axisLine={false}
                             tickMargin={8}
-                            tickFormatter={(value) => value.slice(0, 3)}
                         />
                         <YAxis
                             dataKey="pressure"

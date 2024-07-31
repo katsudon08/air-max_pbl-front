@@ -4,6 +4,7 @@ export const URLS = {
 } as const satisfies Record<string, string>
 
 export const URL_PATH = {
+    WEATHER: "/weather",
     ROOM1: "/room1",
     ROOM2: "/room2",
     ROOM: "/room",

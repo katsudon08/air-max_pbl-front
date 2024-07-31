@@ -1,37 +1,19 @@
 "use client"
 import { ChartCom } from "@/components/chart/Chart";
-import { DIRECTORY } from "@/constants/pass_dir";
-import { URL_PATH } from "@/constants/urls";
-import { useRoom } from "@/context/roomContext";
+import { useWeatherMap } from "@/hooks/useWeatherMap";
 import { Weather } from "@/types/weather";
+import { NewWeatherMap } from "@/types/weatherMap";
 import { useEffect, useState } from "react";
 
 export default function Chart() {
     // TODO あとでスクレイピングで週間予報（天気）をfetchする
-    const { room, setRoom } = useRoom()
+    const [weatherData, setWeatherData] = useState<NewWeatherMap[]>([])
 
-    useEffect(() => {
-        const fetchWeatherData = async () => {
-            const res = await fetch(DIRECTORY.API + URL_PATH.ROOM + room, {
-                cache: "no-store"
-            })
-            if (!res.ok) {
-                throw new Error("データを取得できませんでした")
-            }
+    useWeatherMap(setWeatherData)
 
-            const data = await res.json()
-
-            console.log(data)
-
-            setWeatherData(data)
-        }
-
-        fetchWeatherData()
-    }, [room])
-
-    const [weatherData, setWeatherData] = useState<Weather[]>([])
+    console.log(weatherData)
 
     return (
-        <ChartCom />
+        <ChartCom data={weatherData}/>
     );
 }
