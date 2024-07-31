@@ -19,14 +19,14 @@ export const useSupabaseWeather = (setData: SetData, isLatest: boolean) => {
                 (await supabase.from("room1").select("*")).data :
                 (await supabase.from("room2").select("*")).data
 
-            if (handleIsWeatherCaution(data, isLatest)) {
-                toast({
-                    variant: "destructive",
-                    title: "快適な温度を保つために、冷房のご使用をお勧めいたします"
-                })
-            }
-
             if (data !== null) {
+                if (handleIsWeatherCaution(data.slice(-1)[0], isLatest)) {
+                    toast({
+                        variant: "destructive",
+                        title: "快適な温度を保つために、冷房のご使用をお勧めいたします"
+                    })
+                }
+
                 setData(isLatest ? data.slice(-1)[0] : data)
             }
         }
