@@ -1,5 +1,6 @@
 "use client"
 import { HomeCom } from "@/components/home/Home";
+import { useSupabaseWeather } from "@/hooks/useSupabaseWeather";
 import { useWeather } from "@/hooks/useWeather";
 import { Weather } from "@/types/weather";
 import { useState } from "react";
@@ -14,7 +15,7 @@ export default function Home() {
         pressure: 0
     })
 
-    useWeather(setWeatherData, true)
+    useSupabaseWeather(setWeatherData, true)
 
     return (
         <HomeCom weatherData={weatherData} />

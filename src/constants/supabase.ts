@@ -1,0 +1,4 @@
+export const SUPABASE_CONFIG = {
+    NEXT_PUBLIC_SUPABASE_URL: "https://pnheyfoibzodvmiyygbf.supabase.co",
+    NEXT_PUBLIC_SUPABASE_ANON_KEY: "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJzdXBhYmFzZSIsInJlZiI6InBuaGV5Zm9pYnpvZHZtaXl5Z2JmIiwicm9sZSI6ImFub24iLCJpYXQiOjE3MjE2MjM1MjQsImV4cCI6MjAzNzE5OTUyNH0.xpOxUjWyzcJmpQ_xqkHx6ZK8F9Xo92nuqE1grCbbV4A"
+}
