@@ -37,7 +37,8 @@
     "recharts": "^2.12.7",
     "supabase": "^1.187.8",
     "tailwind-merge": "^2.3.0",
-    "tailwindcss-animate": "^1.0.7"
+    "tailwindcss-animate": "^1.0.7",
+    "use-sound": "^4.0.3"
   },
   "devDependencies": {
     "@types/node": "^20",

@@ -1,16 +1,18 @@
 import { useRoom } from "@/context/roomContext"
-import { Dispatch, SetStateAction, useEffect, useState } from "react"
-import { useWeatherAPI } from "./useWeatherAPI"
+import { Dispatch, SetStateAction, useEffect } from "react"
 import { Weather } from "@/types/weather"
 import { supabase } from "@/utils/supabase"
 import { handleIsWeatherCaution } from "@/utils/handleIsWeatherCaution"
 import { useToast } from "@/components/ui/use-toast"
+import { useSound } from "use-sound";
+import Sound from "./alert.mp3"
 
 type SetData = Dispatch<SetStateAction<Weather>> | Dispatch<SetStateAction<Weather[]>>
 
 export const useSupabaseWeather = (setData: SetData, isLatest: boolean) => {
     const { room, setRoom } = useRoom()
     const { toast } = useToast()
+    const [ playSound ] = useSound(Sound)
 
     useEffect(() => {
         console.log(room)
@@ -25,6 +27,7 @@ export const useSupabaseWeather = (setData: SetData, isLatest: boolean) => {
                         variant: "destructive",
                         title: "快適な温度を保つために、冷房のご使用をお勧めいたします"
                     })
+                    playSound()
                 }
 
                 setData(isLatest ? data.slice(-1)[0] : data)
